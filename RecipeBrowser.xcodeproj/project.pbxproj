@@ -16,6 +16,9 @@
 		17C491B02C49994A00DA29D4 /* RecipeBrowserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491AF2C49994A00DA29D4 /* RecipeBrowserUITestsLaunchTests.swift */; };
 		17C491BD2C499A5000DA29D4 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491BC2C499A5000DA29D4 /* Models.swift */; };
 		17C491BF2C499A6C00DA29D4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491BE2C499A6B00DA29D4 /* NetworkManager.swift */; };
+		17C491C32C499BC100DA29D4 /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491C22C499BC100DA29D4 /* MealDetailViewModel.swift */; };
+		17C491C52C499BD700DA29D4 /* MealListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491C42C499BD700DA29D4 /* MealListViewModel.swift */; };
+		17C491C72C499BEA00DA29D4 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491C62C499BEA00DA29D4 /* MealDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		17C491AF2C49994A00DA29D4 /* RecipeBrowserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBrowserUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		17C491BC2C499A5000DA29D4 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		17C491BE2C499A6B00DA29D4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		17C491C22C499BC100DA29D4 /* MealDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewModel.swift; sourceTree = "<group>"; };
+		17C491C42C499BD700DA29D4 /* MealListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewModel.swift; sourceTree = "<group>"; };
+		17C491C62C499BEA00DA29D4 /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +106,12 @@
 			isa = PBXGroup;
 			children = (
 				17C491912C49994800DA29D4 /* RecipeBrowserApp.swift */,
-				17C491932C49994800DA29D4 /* ContentView.swift */,
+				17C491BE2C499A6B00DA29D4 /* NetworkManager.swift */,
+				17C491C12C499B8E00DA29D4 /* ViewModels */,
+				17C491C02C499B6D00DA29D4 /* Views */,
 				17C491952C49994A00DA29D4 /* Assets.xcassets */,
 				17C491972C49994A00DA29D4 /* RecipeBrowser.entitlements */,
 				17C491982C49994A00DA29D4 /* Preview Content */,
-				17C491BC2C499A5000DA29D4 /* Models.swift */,
-				17C491BE2C499A6B00DA29D4 /* NetworkManager.swift */,
 			);
 			path = RecipeBrowser;
 			sourceTree = "<group>";
@@ -133,6 +139,25 @@
 				17C491AF2C49994A00DA29D4 /* RecipeBrowserUITestsLaunchTests.swift */,
 			);
 			path = RecipeBrowserUITests;
+			sourceTree = "<group>";
+		};
+		17C491C02C499B6D00DA29D4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				17C491932C49994800DA29D4 /* ContentView.swift */,
+				17C491C62C499BEA00DA29D4 /* MealDetailView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		17C491C12C499B8E00DA29D4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				17C491BC2C499A5000DA29D4 /* Models.swift */,
+				17C491C22C499BC100DA29D4 /* MealDetailViewModel.swift */,
+				17C491C42C499BD700DA29D4 /* MealListViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +293,10 @@
 				17C491BF2C499A6C00DA29D4 /* NetworkManager.swift in Sources */,
 				17C491BD2C499A5000DA29D4 /* Models.swift in Sources */,
 				17C491942C49994800DA29D4 /* ContentView.swift in Sources */,
+				17C491C32C499BC100DA29D4 /* MealDetailViewModel.swift in Sources */,
+				17C491C72C499BEA00DA29D4 /* MealDetailView.swift in Sources */,
 				17C491922C49994800DA29D4 /* RecipeBrowserApp.swift in Sources */,
+				17C491C52C499BD700DA29D4 /* MealListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
