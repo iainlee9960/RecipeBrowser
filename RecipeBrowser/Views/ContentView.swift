@@ -9,19 +9,28 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var viewModel = MealListViewModel()
-
+    @State private var selectedMeal: Meal?
+    
     var body: some View {
         NavigationView {
             List(viewModel.meals) { meal in
-                NavigationLink(destination: MealDetailView(mealID: meal.id)) {
-                    HStack {
-                        AsyncImage(url: URL(string: meal.thumbnail)) { image in
-                            image.resizable().aspectRatio(contentMode: .fill).frame(width: 50, height: 50).clipped()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        Text(meal.name)
+                HStack {
+                    if let url = URL(string: meal.thumbnail) {
+                        AsyncImageView(url: url, placeholder: Image(systemName: "photo"))
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 50, height: 50)
+                            .clipped()
+                    } else {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 50, height: 50)
+                            .clipped()
                     }
+                    Text(meal.name)
+                }
+                .onTapGesture {
+                    selectedMeal = meal
                 }
             }
             .navigationTitle("Desserts")
@@ -42,6 +51,9 @@ struct ContentView: View {
                     message: Text(viewModel.error?.localizedDescription ?? "Unknown error"),
                     dismissButton: .default(Text("OK"))
                 )
+            }
+            .sheet(item: $selectedMeal) { meal in
+                MealDetailView(mealID: meal.id, mealThumbnail: meal.thumbnail)
             }
         }
     }
