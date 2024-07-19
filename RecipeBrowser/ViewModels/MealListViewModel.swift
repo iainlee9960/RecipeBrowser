@@ -8,18 +8,21 @@
 import Foundation
 
 class MealListViewModel: ObservableObject {
+    @Published var categories: [Category] = []
     @Published var meals: [Meal] = []
+    @Published var filteredMeals: [Meal] = []
     @Published var isLoading = false
     @Published var error: Error?
 
-    func fetchMeals() {
+    func fetchCategories() {
         isLoading = true
         error = nil
         Task {
             do {
-                let meals = try await NetworkManager.shared.fetchDessertMeals()
+                var fetchedCategories = try await NetworkManager.shared.fetchCategories()
+                fetchedCategories.sort { $0.name == "Dessert" && $1.name != "Dessert" }
                 DispatchQueue.main.async {
-                    self.meals = meals
+                    self.categories = fetchedCategories
                     self.isLoading = false
                 }
             } catch {
@@ -28,6 +31,34 @@ class MealListViewModel: ObservableObject {
                     self.isLoading = false
                 }
             }
+        }
+    }
+
+    func fetchMeals(category: String) {
+        isLoading = true
+        error = nil
+        Task {
+            do {
+                let fetchedMeals = try await NetworkManager.shared.fetchMeals(for: category)
+                DispatchQueue.main.async {
+                    self.meals = fetchedMeals
+                    self.filteredMeals = fetchedMeals
+                    self.isLoading = false
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.error = error
+                    self.isLoading = false
+                }
+            }
+        }
+    }
+
+    func filterMeals(query: String) {
+        if query.isEmpty {
+            filteredMeals = meals
+        } else {
+            filteredMeals = meals.filter { $0.name.localizedCaseInsensitiveContains(query) }
         }
     }
 }
