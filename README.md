@@ -25,4 +25,4 @@ Include screenshots of your app here.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/recipe-browser-app.git
+   git clone https://github.com/iainlee9960/RecipeBrowser.git
