@@ -51,15 +51,32 @@ struct ContentView: View {
                     .padding(.horizontal)
                 }
 
-                if selectedCategory != nil {
-                    TextField("Search...", text: $searchQuery, onEditingChanged: { _ in
-                        viewModel.filterMeals(query: searchQuery)
-                    })
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(.horizontal)
-                }
-
                 ScrollView {
+                    if selectedCategory != nil {
+                        HStack {
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(.gray)
+                            TextField("Search meals", text: $searchQuery)
+                                .foregroundColor(.primary)
+                                .padding(10)
+                                .background(Color(.systemGray6))
+                                .cornerRadius(15)
+                                .onChange(of: searchQuery) { newValue in
+                                    viewModel.filterMeals(query: newValue)
+                                }
+                            if !searchQuery.isEmpty {
+                                Button(action: {
+                                    searchQuery = ""
+                                    viewModel.filterMeals(query: "")
+                                }) {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundColor(.gray)
+                                }
+                            }
+                        }
+                        .padding(.horizontal)
+                    }
+
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(viewModel.filteredMeals) { meal in
                             Button(action: {
