@@ -52,7 +52,7 @@ struct ContentView: View {
                 }
 
                 ScrollView {
-                    if selectedCategory != nil {
+                    /*if selectedCategory != nil {
                         HStack {
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(.gray)
@@ -75,7 +75,7 @@ struct ContentView: View {
                             }
                         }
                         .padding(.horizontal)
-                    }
+                    }*/
 
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(viewModel.filteredMeals) { meal in

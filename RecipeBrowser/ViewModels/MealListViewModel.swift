@@ -19,10 +19,10 @@ class MealListViewModel: ObservableObject {
         error = nil
         Task {
             do {
-                var fetchedCategories = try await NetworkManager.shared.fetchCategories()
-                fetchedCategories.sort { $0.name == "Dessert" && $1.name != "Dessert" }
+                let fetchedCategories = try await NetworkManager.shared.fetchCategories()
+                let sortedCategories = fetchedCategories.sorted { $0.name == "Dessert" && $1.name != "Dessert" }
                 DispatchQueue.main.async {
-                    self.categories = fetchedCategories
+                    self.categories = sortedCategories
                     self.isLoading = false
                 }
             } catch {
