@@ -12,7 +12,11 @@ struct ContentView: View {
     @State private var selectedCategory: Category?
     @State private var selectedMeal: Meal?
     @State private var searchQuery: String = ""
-    
+
+    let columns = [
+        GridItem(.flexible())
+    ]
+
     var body: some View {
         VStack {
             if viewModel.categories.isEmpty {
@@ -46,7 +50,7 @@ struct ContentView: View {
                     .padding(.vertical, 2)
                     .padding(.horizontal)
                 }
-                
+
                 if selectedCategory != nil {
                     TextField("Search...", text: $searchQuery, onEditingChanged: { _ in
                         viewModel.filterMeals(query: searchQuery)
@@ -54,26 +58,20 @@ struct ContentView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal)
                 }
-                
-                List(viewModel.meals) { meal in
-                    HStack {
-                        if let url = URL(string: meal.thumbnail) {
-                            AsyncImageView(url: url, placeholder: Image(systemName: "photo"))
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 50, height: 50)
-                                .clipped()
-                        } else {
-                            Image(systemName: "photo")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 50, height: 50)
-                                .clipped()
+
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 20) {
+                        ForEach(viewModel.filteredMeals) { meal in
+                            Button(action: {
+                                selectedMeal = meal
+                            }) {
+                                CardView(meal: meal)
+                                    .contentShape(Rectangle())
+                            }
+                            .buttonStyle(PlainButtonStyle())
                         }
-                        Text(meal.name)
                     }
-                    .onTapGesture {
-                        selectedMeal = meal
-                    }
+                    .padding()
                 }
                 .onAppear {
                     if let initialCategory = viewModel.categories.first(where: { $0.name == "Dessert" }) ?? viewModel.categories.first {

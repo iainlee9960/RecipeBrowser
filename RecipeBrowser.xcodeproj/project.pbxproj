@@ -23,6 +23,7 @@
 		17C491CE2C4A0F8800DA29D4 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491CD2C4A0F8800DA29D4 /* Meal.swift */; };
 		17C491D02C4A0F9500DA29D4 /* MealDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491CF2C4A0F9500DA29D4 /* MealDetail.swift */; };
 		17C491D32C4A101D00DA29D4 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491D22C4A101D00DA29D4 /* ColorExtensions.swift */; };
+		17C491D52C4AD44300DA29D4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491D42C4AD44300DA29D4 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		17C491CD2C4A0F8800DA29D4 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		17C491CF2C4A0F9500DA29D4 /* MealDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetail.swift; sourceTree = "<group>"; };
 		17C491D22C4A101D00DA29D4 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		17C491D42C4AD44300DA29D4 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				17C491932C49994800DA29D4 /* ContentView.swift */,
 				17C491C62C499BEA00DA29D4 /* MealDetailView.swift */,
 				17C491CB2C4A0F4500DA29D4 /* AsyncImageView.swift */,
+				17C491D42C4AD44300DA29D4 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				17C491C72C499BEA00DA29D4 /* MealDetailView.swift in Sources */,
 				17C491D02C4A0F9500DA29D4 /* MealDetail.swift in Sources */,
 				17C491922C49994800DA29D4 /* RecipeBrowserApp.swift in Sources */,
+				17C491D52C4AD44300DA29D4 /* CardView.swift in Sources */,
 				17C491C52C499BD700DA29D4 /* MealListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

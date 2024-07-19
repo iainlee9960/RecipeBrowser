@@ -8,34 +8,19 @@
 import Foundation
 import SwiftUI
 
-@MainActor
-class AsyncImageLoader: ObservableObject {
-    @Published var image: UIImage?
+struct AsyncImageView<Placeholder: View>: View {
+    @StateObject private var loader: ImageLoader
+    let placeholder: Placeholder
 
-    func load(url: URL) async {
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            if let uiImage = UIImage(data: data) {
-                self.image = uiImage
-            } else {
-                print("Error: Image data is invalid")
-            }
-        } catch {
-            print("Error loading image: \(error.localizedDescription)")
-        }
+    init(url: URL, placeholder: Placeholder) {
+        _loader = StateObject(wrappedValue: ImageLoader(url: url))
+        self.placeholder = placeholder
     }
-}
-
-
-struct AsyncImageView: View {
-    @StateObject private var loader = AsyncImageLoader()
-    let url: URL
-    let placeholder: Image
 
     var body: some View {
         image
-            .task {
-                await loader.load(url: url)
+            .onAppear {
+                loader.load()
             }
     }
 
@@ -46,8 +31,29 @@ struct AsyncImageView: View {
                     .resizable()
             } else {
                 placeholder
-                    .resizable()
             }
         }
+    }
+}
+
+class ImageLoader: ObservableObject {
+    @Published var image: UIImage?
+    private let url: URL
+
+    init(url: URL) {
+        self.url = url
+    }
+
+    func load() {
+        guard image == nil else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            if let data = data, let uiImage = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.image = uiImage
+                }
+            }
+        }
+        task.resume()
     }
 }
