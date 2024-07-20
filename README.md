@@ -6,6 +6,13 @@ This is a SwiftUI-based iOS application that allows users to browse, search, and
 
 - **Browse Recipes**: Browse recipes by categories.
 - **View Recipe Details**: View detailed information about each recipe, including ingredients and instructions.
+- **Bookmark Favorite Recipes**: Easily bookmark your favorite recipes and view them in the profile tab.
+
+## Screenshots
+
+![IMG_6958](https://github.com/user-attachments/assets/f99c3330-1ad2-4f46-b806-c618fda5c996)
+![IMG_6959](https://github.com/user-attachments/assets/7a9d5797-18c8-4d37-9a83-ef5862008862)
+
 
 ## Installation
 
