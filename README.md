@@ -1,6 +1,6 @@
 # Recipe Browser App
 
-This is a SwiftUI-based iOS application that allows users to browse, search, and view details of various recipes. The app fetches recipe data from [TheMealDB](https://www.themealdb.com/api.php) and presents it in a user-friendly interface. Users can filter recipes by categories and view detailed information about each recipe.
+This is a SwiftUI-based iOS application that allows users to browse, view details, and bookmark various recipes. The app fetches recipe data from [TheMealDB](https://www.themealdb.com/api.php) and presents it in a user-friendly interface. Users can filter recipes by categories and view detailed information about each recipe.
 
 ## Features
 
