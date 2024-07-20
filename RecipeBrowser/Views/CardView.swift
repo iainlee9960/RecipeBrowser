@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CardView: View {
+    @ObservedObject var viewModel: MainViewModel
     let meal: Meal
     
     var body: some View {
@@ -25,10 +26,24 @@ struct CardView: View {
                     .frame(height: 120)
                     .cornerRadius(8, corners: [.topLeft, .topRight])
             }
-            Text(meal.name)
-                .font(.headline)
-                .padding([.leading, .bottom, .trailing])
-                .lineLimit(1)
+            HStack {
+                Text(meal.name)
+                    .font(.headline)
+                    .padding([.leading, .bottom, .trailing])
+                    .lineLimit(1)
+                Spacer()
+                Button(action: {
+                    if viewModel.savedRecipes.contains(meal) {
+                        viewModel.removeRecipe(meal)
+                    } else {
+                        viewModel.saveRecipe(meal)
+                    }
+                }) {
+                    Image(systemName: viewModel.savedRecipes.contains(meal) ? "bookmark.fill" : "bookmark")
+                        .foregroundColor(.black)
+                        .padding()
+                }
+            }
         }
         .background(Color.white)
         .cornerRadius(10)

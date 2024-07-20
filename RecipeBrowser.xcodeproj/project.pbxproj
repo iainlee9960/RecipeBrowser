@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17AD8B822C4C749B007A16F4 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD8B812C4C749B007A16F4 /* BottomBar.swift */; };
+		17AD8B842C4C74D3007A16F4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD8B832C4C74D2007A16F4 /* HomeView.swift */; };
+		17AD8B862C4C7517007A16F4 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD8B852C4C7517007A16F4 /* ProfileView.swift */; };
+		17AD8B882C4C7560007A16F4 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17AD8B872C4C7560007A16F4 /* MainViewModel.swift */; };
 		17C491922C49994800DA29D4 /* RecipeBrowserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491912C49994800DA29D4 /* RecipeBrowserApp.swift */; };
 		17C491942C49994800DA29D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C491932C49994800DA29D4 /* ContentView.swift */; };
 		17C491962C49994A00DA29D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C491952C49994A00DA29D4 /* Assets.xcassets */; };
@@ -44,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17AD8B812C4C749B007A16F4 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		17AD8B832C4C74D2007A16F4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		17AD8B852C4C7517007A16F4 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		17AD8B872C4C7560007A16F4 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		17C4918E2C49994800DA29D4 /* RecipeBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C491912C49994800DA29D4 /* RecipeBrowserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeBrowserApp.swift; sourceTree = "<group>"; };
 		17C491932C49994800DA29D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,9 +165,12 @@
 			isa = PBXGroup;
 			children = (
 				17C491932C49994800DA29D4 /* ContentView.swift */,
+				17AD8B832C4C74D2007A16F4 /* HomeView.swift */,
 				17C491C62C499BEA00DA29D4 /* MealDetailView.swift */,
 				17C491CB2C4A0F4500DA29D4 /* AsyncImageView.swift */,
 				17C491D42C4AD44300DA29D4 /* CardView.swift */,
+				17AD8B812C4C749B007A16F4 /* BottomBar.swift */,
+				17AD8B852C4C7517007A16F4 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -169,6 +180,7 @@
 			children = (
 				17C491C22C499BC100DA29D4 /* MealDetailViewModel.swift */,
 				17C491C42C499BD700DA29D4 /* MealListViewModel.swift */,
+				17AD8B872C4C7560007A16F4 /* MainViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -324,14 +336,18 @@
 			files = (
 				17C491D32C4A101D00DA29D4 /* ColorExtensions.swift in Sources */,
 				17C491BF2C499A6C00DA29D4 /* NetworkManager.swift in Sources */,
+				17AD8B842C4C74D3007A16F4 /* HomeView.swift in Sources */,
 				17C491942C49994800DA29D4 /* ContentView.swift in Sources */,
 				17C491CC2C4A0F4500DA29D4 /* AsyncImageView.swift in Sources */,
+				17AD8B882C4C7560007A16F4 /* MainViewModel.swift in Sources */,
 				17C491CE2C4A0F8800DA29D4 /* Meal.swift in Sources */,
 				17C491C32C499BC100DA29D4 /* MealDetailViewModel.swift in Sources */,
 				17C491C72C499BEA00DA29D4 /* MealDetailView.swift in Sources */,
 				17C491D02C4A0F9500DA29D4 /* MealDetail.swift in Sources */,
+				17AD8B822C4C749B007A16F4 /* BottomBar.swift in Sources */,
 				17C491922C49994800DA29D4 /* RecipeBrowserApp.swift in Sources */,
 				17C491D52C4AD44300DA29D4 /* CardView.swift in Sources */,
+				17AD8B862C4C7517007A16F4 /* ProfileView.swift in Sources */,
 				17C491C52C499BD700DA29D4 /* MealListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

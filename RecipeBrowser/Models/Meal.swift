@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Meal: Codable, Identifiable {
+struct Meal: Codable, Identifiable, Equatable {
     let id: String
     let name: String
     let thumbnail: String
@@ -16,5 +16,9 @@ struct Meal: Codable, Identifiable {
         case id = "idMeal"
         case name = "strMeal"
         case thumbnail = "strMealThumb"
+    }
+
+    static func ==(lhs: Meal, rhs: Meal) -> Bool {
+        return lhs.id == rhs.id
     }
 }
