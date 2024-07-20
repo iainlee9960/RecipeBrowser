@@ -11,12 +11,9 @@ This is a SwiftUI-based iOS application that allows users to browse, search, and
 ## Screenshots
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/a4da4081-01a5-45e8-ab73-434c0c7b0939" width="200">
   <img src="https://github.com/user-attachments/assets/46a79a03-a209-4a71-a353-113e2d565190" width="200">
-  <img src="https://github.com/user-attachments/assets/7585be8e-d71d-464e-b8c8-602786a86807" width="200">
-  <img src="https://github.com/user-attachments/assets/922e5021-a3b1-4036-ba3b-dd94160a6a63" width="200">
-  <img src="https://github.com/user-attachments/assets/25f77cdb-e801-4e11-be6f-7e0e35e83ad4" width="200">
   <img src="https://github.com/user-attachments/assets/d039585a-977c-42d8-ba11-fa9428fc88cc" width="200">
+  <img src="https://github.com/user-attachments/assets/92de3068-311a-4bae-b2c5-8d50d85bc29c" width="200">
 </p>
 
 ## Installation
