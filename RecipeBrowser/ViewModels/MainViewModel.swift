@@ -12,15 +12,27 @@ enum ViewType {
     case home
     case profile
 }
+import Foundation
+import SwiftUI
 
 class MainViewModel: ObservableObject {
     @Published var currentView: ViewType = .home
-    @Published var savedRecipes: [Meal] = []
+    @Published var savedRecipes: [Meal] = [] {
+        didSet {
+            saveRecipesToUserDefaults()
+        }
+    }
     @Published var categories: [Category] = []
     @Published var meals: [Meal] = []
     @Published var filteredMeals: [Meal] = []
     @Published var isLoading = false
     @Published var error: Error?
+
+    private let savedRecipesKey = "savedRecipes"
+
+    init() {
+        loadSavedRecipesFromUserDefaults()
+    }
 
     func fetchCategories() {
         isLoading = true
@@ -79,6 +91,19 @@ class MainViewModel: ObservableObject {
     func removeRecipe(_ meal: Meal) {
         if let index = savedRecipes.firstIndex(of: meal) {
             savedRecipes.remove(at: index)
+        }
+    }
+
+    private func saveRecipesToUserDefaults() {
+        if let encoded = try? JSONEncoder().encode(savedRecipes) {
+            UserDefaults.standard.set(encoded, forKey: savedRecipesKey)
+        }
+    }
+
+    private func loadSavedRecipesFromUserDefaults() {
+        if let savedData = UserDefaults.standard.data(forKey: savedRecipesKey),
+           let decoded = try? JSONDecoder().decode([Meal].self, from: savedData) {
+            savedRecipes = decoded
         }
     }
 }
